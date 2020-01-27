@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="suite-regression" verbose="1">
+    <test name="chromeTests">
+        <classes>
+            <class name="tests.login.LoginPositiveCaseTests"></class>
+            <class name="tests.login.LoginNegativeCasesTests"></class>
+            <class name="tests.cart.AddProductToCart"></class>
+            <class name="tests.search.SearchProductTests"></class>
+        </classes>
+    </test>
+</suite>
