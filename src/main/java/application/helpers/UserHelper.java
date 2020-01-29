@@ -1,14 +1,14 @@
 package application.helpers;
 
 import application.ApplicationManager;
-import models.User;
+import models.UserData;
 
 public class UserHelper extends BaseHelper {
     public UserHelper(ApplicationManager app) {
         super(app.getWebDriver());
     }
 
-    public UserHelper loginAs(User user) {
+    public UserHelper loginAs(UserData user) {
         pages.headerPage.ensurePageLoaded();
         if (!pages.loginPage.isOpen()) {
             pages.headerPage.clickSignInLink();

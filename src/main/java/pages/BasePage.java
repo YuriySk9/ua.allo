@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Reporter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +24,11 @@ public class BasePage {
 
     protected void type(By locator, String text) {
         if (text != null) {
-            String oldText = driver.findElement(locator).getText();
+            String oldText = element(locator).getText();
             if (!text.equals(oldText)) {
-                driver.findElement(locator).click();
-                driver.findElement(locator).clear();
-                driver.findElement(locator).sendKeys(text);
+                element(locator).click();
+                element(locator).clear();
+                element(locator).sendKeys(text);
             }
         }
     }
@@ -66,7 +65,6 @@ public class BasePage {
         for (WebElement product : productNamesList) {
             productNameList.add(product.getText());
         }
-//        log("product list is received from the page.");
         return productNameList;
     }
 }

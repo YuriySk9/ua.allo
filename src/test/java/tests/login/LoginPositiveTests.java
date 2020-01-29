@@ -6,8 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import tests.BaseTest;
 
-public class LoginPositiveCaseTests extends BaseTest {
-
+public class LoginPositiveTests extends BaseTest {
     @BeforeMethod
     public void beforeTest(){
         app.getUserHelper().logout();
@@ -15,10 +14,10 @@ public class LoginPositiveCaseTests extends BaseTest {
 
     @Test
     public void testLoginWithCorrectData() {
-        app.getUserHelper().loginAs(user).isUserLoggedIn();
+        app.getUserHelper().loginAs(existingUser).isUserLoggedIn();
         String userName = app.getUserHelper().getUserName();
 
-        Assert.assertEquals(userName, user.getName());
+        Assert.assertEquals(userName, existingUser.getName());
     }
 
     @AfterMethod

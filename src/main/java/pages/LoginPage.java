@@ -8,7 +8,7 @@ public class LoginPage extends BasePage {
     private By emailField = By.id("auth");
     private By passwordField = By.id("v-login-password");
     private By submitButton = By.xpath("//button[@class='modal-submit-button']");
-    private By errorMessage = By.xpath("//div[@class='validation-advice v-validation-error']");
+    private By errorMessage = By.xpath("//div[@class='validation-advice v-validation-error']//span");
     private By loadingModalRequest = By.xpath("//div[@class='loading-modal-request']");
 
     public LoginPage(PageManager pages) {
@@ -25,7 +25,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public void clickSubmitButton(){
+    public void clickSubmitButton() {
         WebElement loginButton = element(submitButton);
         loginButton.click();
         wait.until(ExpectedConditions.or(
@@ -38,7 +38,7 @@ public class LoginPage extends BasePage {
         return isElementPresent(emailField);
     }
 
-    public boolean isErrorMessage(){
+    public boolean isErrorMessage() {
         return isElementPresent(errorMessage);
     }
 

@@ -5,13 +5,16 @@ import application.ApplicationManager;
 import java.util.List;
 
 public class CartHelper extends BaseHelper {
+    private String url = "https://allo.ua/ua/checkout/cart/";
+
     public CartHelper(ApplicationManager app) {
         super(app.getWebDriver());
     }
 
     public CartHelper open() {
-        pages.headerPage.ensurePageLoaded()
-                .clickCartLink();
+        if (!pages.cartPage.isCartOpen()) {
+            driver.get(url);
+        }
         log("cart page is open");
         return this;
     }
@@ -28,5 +31,23 @@ public class CartHelper extends BaseHelper {
                 .getProducts();
         log("products in the cart: " + products);
         return products;
+    }
+
+    public void clear() {
+        if (pages.cartPage.isCartOpen()) {
+            if (!pages.cartPage.isCartEmpty()) {
+                while (!pages.cartPage.isCartEmpty()) {
+                    pages.cartPage.clickDeleteButton("");
+                }
+            }
+        } else {
+            if (pages.headerPage.ensurePageLoaded().productCountInCart() > 0) {
+                open();
+                pages.cartPage.ensurePageLoaded();
+                while (!pages.cartPage.isCartEmpty()) {
+                    pages.cartPage.clickDeleteButton("");
+                }
+            }
+        }
     }
 }

@@ -5,9 +5,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import pages.PageManager;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class BaseHelper {
     protected WebDriver driver;
     protected WebDriverWait wait;
@@ -23,9 +20,5 @@ public class BaseHelper {
 
     protected void log(String message) {
         Reporter.log(message + "<br>");
-    }
-
-    public List<String> toLowerList(List<String> list) {
-        return list.stream().map(s -> s.toLowerCase()).collect(Collectors.toList());
     }
 }

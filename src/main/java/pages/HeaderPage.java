@@ -12,9 +12,6 @@ public class HeaderPage extends BasePage {
     private By findButton = By.xpath("//button[@class='button']");
     private By accountDropDown = By.xpath("//div[@id='customer-header-menu']//span[@class='arrow-icon']");
     private By productCountInCart = By.xpath("//span[@class='count']");
-    private By emptyCartIcon = By.xpath("//div[@id='cart-block']//span[@class='icon']");
-    private By notEmptyCartIcon = By.xpath("//div[@id='cart-block']//span[@class='icon']");
-    private String url = "https://allo.ua/ua/checkout/cart/";
 
     public HeaderPage(PageManager pages) {
         super(pages);
@@ -28,7 +25,7 @@ public class HeaderPage extends BasePage {
     public boolean isUserLoggedIn() {
         return isElementPresent(accountDropDown);
     }
-    
+
     public String getUserName() {
         return element(myAccountLink).getText();
     }
@@ -53,17 +50,9 @@ public class HeaderPage extends BasePage {
         return pages.productListPage;
     }
 
-    public int productCountInCart(){
+    public int productCountInCart() {
         String count = element(productCountInCart).getText();
         return Integer.parseInt(count);
-    }
-
-    public int clickCartLink() {
-        int count = productCountInCart();
-        if (count > 0) {
-            driver.get(url);
-        }
-        return count;
     }
 
     public HeaderPage ensurePageLoaded() {

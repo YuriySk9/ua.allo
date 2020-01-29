@@ -1,6 +1,5 @@
 package tests.search;
 
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tests.BaseTest;
@@ -26,7 +25,7 @@ public class SearchProductTests extends BaseTest {
         product = product.toLowerCase();
 
         app.getSearchHelper().search(product);
-        List<String> productList = app.getProductListHelper().getProductList();
+        List<String> productList = app.getProductListHelper().getNames();
 
         assertThat(productList, (everyItem(containsString(product))));
     }

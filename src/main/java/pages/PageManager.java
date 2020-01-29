@@ -8,6 +8,8 @@ public class PageManager {
     public ProductListPage productListPage;
     public LoginPage loginPage;
     public ModalCartPage modalCartPage;
+    public ProductCatalogPage productCatalogPage;
+    public FilterPage filterPage;
 
     private WebDriver driver;
 
@@ -18,6 +20,8 @@ public class PageManager {
         productListPage = new ProductListPage(this);
         modalCartPage = new ModalCartPage(this);
         cartPage = new CartPage(this);
+        productCatalogPage = new ProductCatalogPage(this);
+        filterPage = new FilterPage(this);
     }
 
     public WebDriver getWebDriver() {
