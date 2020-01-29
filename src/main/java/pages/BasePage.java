@@ -1,9 +1,7 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,7 +25,7 @@ public class BasePage {
             String oldText = element(locator).getText();
             if (!text.equals(oldText)) {
                 element(locator).click();
-                element(locator).clear();
+                element(locator).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
                 element(locator).sendKeys(text);
             }
         }

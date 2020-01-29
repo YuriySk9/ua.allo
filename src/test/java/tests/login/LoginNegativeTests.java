@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import models.UserData;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -21,6 +22,11 @@ public class LoginNegativeTests extends BaseTest {
     @BeforeMethod
     public void beforeTest() {
         app.getUserHelper().logout();
+    }
+
+    @AfterMethod
+    public void afterTest() {
+        app.getUserHelper().closeLoginWindow();
     }
 
     @DataProvider

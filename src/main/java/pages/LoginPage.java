@@ -10,6 +10,7 @@ public class LoginPage extends BasePage {
     private By submitButton = By.xpath("//button[@class='modal-submit-button']");
     private By errorMessage = By.xpath("//div[@class='validation-advice v-validation-error']//span");
     private By loadingModalRequest = By.xpath("//div[@class='loading-modal-request']");
+    private By closeButton = By.xpath("//div[@class='v-modal__close-btn']");
 
     public LoginPage(PageManager pages) {
         super(pages);
@@ -43,8 +44,14 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage ensurePageLoaded() {
-        waitVisibilityOfElement(emailField);
+        wait.until(ExpectedConditions.elementToBeClickable(emailField));
         wait.until(d -> elements(loadingModalRequest).isEmpty());
         return this;
+    }
+
+    public void clickCloseWindow() {
+        WebElement close = element(closeButton);
+        close.click();
+        wait.until(ExpectedConditions.stalenessOf(close));
     }
 }

@@ -9,7 +9,7 @@ import tests.BaseTest;
 
 import java.util.List;
 
-public class FilterTests extends BaseTest {
+public class FilterPriceAndBrandTests extends BaseTest {
     @Test
     public void testFilterTrademarkAndPrice() {
         FilterData filterData = new FilterData().setBrand(CommonFilterData.Brand.lenovo)

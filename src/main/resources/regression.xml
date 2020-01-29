@@ -3,9 +3,10 @@
     <test name="chromeTests">
         <parameter name = "browser" value = "chrome"></parameter>
         <classes>
+            <class name="tests.cart.AddProductToCart"></class>
+            <class name="tests.filter.FilterPriceAndBrandTests"></class>
             <class name="tests.login.LoginPositiveTests"></class>
             <class name="tests.login.LoginNegativeTests"></class>
-            <class name="tests.cart.AddProductToCart"></class>
             <class name="tests.search.SearchProductTests"></class>
         </classes>
     </test>

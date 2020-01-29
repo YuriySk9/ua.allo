@@ -49,4 +49,11 @@ public class UserHelper extends BaseHelper {
             log("logout");
         }
     }
+
+    public void closeLoginWindow() {
+        if (pages.loginPage.isOpen()) {
+            pages.loginPage.ensurePageLoaded()
+                    .clickCloseWindow();
+        }
+    }
 }
