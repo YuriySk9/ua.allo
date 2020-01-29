@@ -3,11 +3,9 @@ package tests;
 import application.ApplicationManager;
 import models.UserData;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
+@Listeners(TestListener.class)
 public class BaseTest {
     public ApplicationManager app;
     public UserData existingUser = new UserData().setLogin("tester125@gmail.com").setPassword("Test1111").setName("Юрий");

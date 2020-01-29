@@ -1,13 +1,19 @@
 package application;
 
 import application.helpers.*;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.DriverManager;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ApplicationManager {
     private WebDriver driver;
@@ -77,6 +83,24 @@ public class ApplicationManager {
     public void stop() {
         if (driver != null) {
             driver.quit();
+        }
+    }
+
+    public void takeScreenshot() {
+        Date date = new Date();
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd_MM_yyyy");
+        SimpleDateFormat formatTime = new SimpleDateFormat("HH-mm-ss");
+        String dateNow = formatDate.format(date);
+        String timeNow = formatTime.format(date);
+        String path = System.getProperty("user.dir")
+                + File.separator + "screenshots"
+                + File.separator + dateNow
+                + File.separator + timeNow + "-screen " + ".png";
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(screenshot, (new File(path)));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
