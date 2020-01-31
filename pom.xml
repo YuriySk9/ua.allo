@@ -56,10 +56,14 @@
                 <configuration>
                     <parallel>classes</parallel>
                     <threadCount>2</threadCount>
+                    <systemProperties>
+                        <browser>$"browser"</browser>
+                    </systemProperties>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/java/resources/testng/cart.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/java/resources/testng/filter.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/java/resources/testng/login.xml</suiteXmlFile>
+
+                        <!--                        <suiteXmlFile>src/test/java/resources/testng/cart.xml</suiteXmlFile>-->
+<!--                        <suiteXmlFile>src/test/java/resources/testng/filter.xml</suiteXmlFile>-->
+<!--                        <suiteXmlFile>src/test/java/resources/testng/login.xml</suiteXmlFile>-->
                         <suiteXmlFile>src/test/java/resources/testng/search.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
