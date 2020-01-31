@@ -1,13 +1,10 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="suite-regression" verbose="1">
-    <test name="chromeTests">
+<suite name="login suite" verbose="1">
+    <test name="Login">
         <parameter name = "browser" value = "chrome"></parameter>
         <classes>
-            <class name="tests.cart.AddProductToCart"></class>
-            <class name="tests.filter.FilterPriceAndBrandTests"></class>
             <class name="tests.login.LoginPositiveTests"></class>
             <class name="tests.login.LoginNegativeTests"></class>
-            <class name="tests.search.SearchProductTests"></class>
         </classes>
     </test>
 </suite>
