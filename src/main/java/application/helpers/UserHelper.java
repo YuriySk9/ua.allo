@@ -1,14 +1,14 @@
 package application.helpers;
 
 import application.ApplicationManager;
-import models.UserData;
+import models.UserModel;
 
 public class UserHelper extends BaseHelper {
     public UserHelper(ApplicationManager app) {
         super(app.getWebDriver());
     }
 
-    public UserHelper loginAs(UserData user) {
+    public UserHelper loginAs(UserModel user) {
         pages.headerPage.ensurePageLoaded();
         if (!pages.loginPage.isOpen()) {
             pages.headerPage.clickSignInLink();
@@ -54,6 +54,7 @@ public class UserHelper extends BaseHelper {
         if (pages.loginPage.isOpen()) {
             pages.loginPage.ensurePageLoaded()
                     .clickCloseWindow();
+            log("close login window");
         }
     }
 }

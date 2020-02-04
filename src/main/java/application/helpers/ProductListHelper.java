@@ -37,6 +37,7 @@ public class ProductListHelper extends BaseHelper {
         List<Integer> priceToInt = priceWithoutSpaces
                 .stream().map(x -> Integer.parseInt(x))
                 .collect(Collectors.toList());
+        log("currently price on the product list page: " + priceToInt);
         return priceToInt;
     }
 }

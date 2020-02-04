@@ -1,6 +1,6 @@
 package models;
 
-public class FilterData {
+public class FilterModel {
     private int minPrice;
     private int maxPrice;
     private String brand;
@@ -9,7 +9,7 @@ public class FilterData {
     public int getMinPrice() {
         return minPrice;
     }
-    public FilterData setMinPrice(int minPrice) {
+    public FilterModel setMinPrice(int minPrice) {
         this.minPrice = minPrice;
         return this;
     }
@@ -17,7 +17,7 @@ public class FilterData {
     public int getMaxPrice() {
         return maxPrice;
     }
-    public FilterData setMaxPrice(int maxPrice) {
+    public FilterModel setMaxPrice(int maxPrice) {
         this.maxPrice = maxPrice;
         return this;
     }
@@ -25,7 +25,7 @@ public class FilterData {
     public String getBrand() {
         return brand;
     }
-    public FilterData setBrand(String brand) {
+    public FilterModel setBrand(String brand) {
         this.brand = brand;
         return this;
     }
@@ -33,8 +33,18 @@ public class FilterData {
     public String getDiagonal() {
         return diagonal;
     }
-    public FilterData setDiagonal(String diagonal) {
+    public FilterModel setDiagonal(String diagonal) {
         this.diagonal = diagonal;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "FilterModel{" +
+                "minPrice=" + minPrice +
+                ", maxPrice=" + maxPrice +
+                ", brand='" + brand + '\'' +
+                ", diagonal='" + diagonal + '\'' +
+                '}';
     }
 }

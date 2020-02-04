@@ -2,7 +2,7 @@ package tests.login;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import models.UserData;
+import models.UserModel;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -31,7 +31,7 @@ public class LoginNegativeTests extends BaseTest {
 
     @DataProvider
     public Iterator<Object[]> invalidLoginData() throws IOException {
-        try(BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/java/resources/login/testNegativeLogin.json")));){
+        try(BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/java/resources/testdata/login/testNegativeLogin.json")));){
             String json = "";
             String line = reader.readLine();
             while (line != null) {
@@ -39,13 +39,13 @@ public class LoginNegativeTests extends BaseTest {
                 line = reader.readLine();
             }
             Gson gson = new Gson();
-            List<UserData> users = gson.fromJson(json, new TypeToken<List<UserData>>(){}.getType()); // List<User>.class
+            List<UserModel> users = gson.fromJson(json, new TypeToken<List<UserModel>>(){}.getType()); // List<User>.class
             return users.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
         }
     }
 
-    @Test(dataProvider = "invalidLoginData",invocationCount = 1)
-    public void testNegativeLogin(UserData user) {
+    @Test(dataProvider = "invalidLoginData", invocationCount = 1)
+    public void testNegativeLogin(UserModel user) {
         boolean isErrorMessage = app.getUserHelper().loginAs(user)
                 .isErrorMessageAfterLogging();
 

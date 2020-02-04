@@ -15,7 +15,7 @@ public class CartHelper extends BaseHelper {
         if (!pages.cartPage.isCartOpen()) {
             driver.get(url);
         }
-        log("cart page is open");
+        log("cart page is opened");
         return this;
     }
 
@@ -49,5 +49,6 @@ public class CartHelper extends BaseHelper {
                 }
             }
         }
+        log("cart is empty");
     }
 }

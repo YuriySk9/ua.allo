@@ -19,6 +19,6 @@ public class BaseHelper {
     }
 
     protected void log(String message) {
-        Reporter.log(message + "<br>");
+        Reporter.log(message + "<br><hr>");
     }
 }

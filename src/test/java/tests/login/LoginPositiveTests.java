@@ -1,5 +1,6 @@
 package tests.login;
 
+import common.page.data.CommonUserData;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -14,10 +15,10 @@ public class LoginPositiveTests extends BaseTest {
 
     @Test
     public void testLoginWithCorrectData() {
-        app.getUserHelper().loginAs(existingUser).isUserLoggedIn();
+        app.getUserHelper().loginAs(CommonUserData.user).isUserLoggedIn();
         String userName = app.getUserHelper().getUserName();
 
-        Assert.assertEquals(userName, existingUser.getName());
+        Assert.assertEquals(userName, CommonUserData.user.getName());
     }
 
     @AfterMethod

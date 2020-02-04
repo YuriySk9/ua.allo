@@ -1,6 +1,6 @@
 package models;
 
-public class UserData {
+public class UserModel {
     private String login;
     private String password;
     private String name;
@@ -9,7 +9,7 @@ public class UserData {
         return login;
     }
 
-    public UserData setLogin(String login) {
+    public UserModel setLogin(String login) {
         this.login = login;
         return this;
     }
@@ -18,7 +18,7 @@ public class UserData {
         return password;
     }
 
-    public UserData setPassword(String password) {
+    public UserModel setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -27,7 +27,7 @@ public class UserData {
         return name;
     }
 
-    public UserData setName(String name) {
+    public UserModel setName(String name) {
         this.name = name;
         return this;
     }

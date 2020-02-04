@@ -14,6 +14,7 @@ public class PopUpsHelper extends BaseHelper {
         if (!driver.findElements(accept).isEmpty()) ;
         {
             wait.until(ExpectedConditions.elementToBeClickable(accept)).click();
+            log("city is accepted");
         }
     }
 
@@ -22,6 +23,7 @@ public class PopUpsHelper extends BaseHelper {
         if (!driver.findElements(receiveNotification).isEmpty()) ;
         {
             wait.until(ExpectedConditions.elementToBeClickable(receiveNotification)).click();
+            log("dismiss receive notifications");
         }
     }
 }

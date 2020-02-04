@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +28,11 @@ public class ApplicationManager {
     private FilterHelper filterHelper;
 
     public ApplicationManager(String browser) {
+        initBrowser(browser);
+        initHelpers();
+    }
+
+    protected void initBrowser(String browser) {
         if (browser.equals(BrowserType.CHROME)) {
             System.setProperty("webdriver.chrome.driver",
                     new File(DriverManager.class.getResource("/chromedriver.exe").getFile()).getPath());
@@ -38,7 +44,9 @@ public class ApplicationManager {
         }
         driver.manage().window().maximize();
         driver.get("https://allo.ua/");
+    }
 
+    protected void initHelpers() {
         userHelper = new UserHelper(this);
         searchHelper = new SearchHelper(this);
         productListHelper = new ProductListHelper(this);
@@ -93,6 +101,7 @@ public class ApplicationManager {
         String dateNow = formatDate.format(date);
         String timeNow = formatTime.format(date);
         String path = System.getProperty("user.dir")
+                + File.separator + "target"
                 + File.separator + "screenshots"
                 + File.separator + dateNow
                 + File.separator + timeNow + "-screen " + ".png";
